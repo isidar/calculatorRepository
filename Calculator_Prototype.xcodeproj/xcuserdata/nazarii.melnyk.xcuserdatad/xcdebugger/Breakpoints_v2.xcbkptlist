@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calculator_Prototype/InputView.swift"
+            timestampString = "530535998.523819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "InputView"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator_Prototype.InputView.delegateToOutput.getter : Swift.Optional&lt;Calculator_Prototype.OutputDelegate&gt;"
+                  moduleName = "Calculator_Prototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarii.melnyk/Documents/Calculator_Prototype/Calculator_Prototype/InputView.swift"
+                  timestampString = "530374787.624848"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "193">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator_Prototype.InputView.delegateToOutput.setter : Swift.Optional&lt;Calculator_Prototype.OutputDelegate&gt;"
+                  moduleName = "Calculator_Prototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarii.melnyk/Documents/Calculator_Prototype/Calculator_Prototype/InputView.swift"
+                  timestampString = "530374787.627367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "505">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator_Prototype.InputView.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Calculator_Prototype.InputView"
+                  moduleName = "Calculator_Prototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarii.melnyk/Documents/Calculator_Prototype/Calculator_Prototype/InputView.swift"
+                  timestampString = "530374787.630042"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "285">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator_Prototype.InputView.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Calculator_Prototype.InputView&gt;"
+                  moduleName = "Calculator_Prototype"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nazarii.melnyk/Documents/Calculator_Prototype/Calculator_Prototype/InputView.swift"
+                  timestampString = "530374787.632797"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calculator_Prototype/CalculatorFeatures.swift"
+            timestampString = "530535998.52431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "toDouble()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
