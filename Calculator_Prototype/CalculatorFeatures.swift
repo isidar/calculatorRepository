@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol OutputDelegate {
     var displayValue: String {get set}
@@ -44,6 +45,7 @@ extension Double {
         }
     }
     
+    /// Returns value in exponential view
     var asScientific: String? {
         get{
             let format = NumberFormatter()
@@ -92,6 +94,7 @@ extension String {
         }
     }
     
+    /// Returns integer part of fractional value (all before dot)
     var asInt: String? {
         get{
             if let dotIndex = self.index(of: "."){
@@ -116,12 +119,11 @@ extension String {
         return value
     }
     
+    /// not finished...
     func addIndex(font: UIFont, range: NSRange) -> NSMutableAttributedString {
         let string = self
         let font = UIFont(name: "Helvetica", size:20)
         let fontSuper = UIFont(name: "Helvetica", size:10)
-        
-        
         
         let attString = NSMutableAttributedString(
             string: string,
@@ -135,7 +137,6 @@ extension String {
         
         return attString
     }
-    
 }
 
 
@@ -151,5 +152,10 @@ func factorial(of number: Double) -> Double {
     }
     
     return product
+}
+
+/// Plays system sound; sound's id: 1112
+func playErrorSound(){
+    AudioServicesPlaySystemSound(1112)
 }
 

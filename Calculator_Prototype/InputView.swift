@@ -10,13 +10,6 @@ import UIKit
 import Foundation
 
 class InputView: UIViewController {
-    /*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addIndexesToButtonNames()
-        
-    }*/
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     var delegateToOutput: OutputDelegate?
@@ -31,8 +24,9 @@ class InputView: UIViewController {
     
     private let brain = CalculatorBrain()
     
-    //fix that (I think..)
-    @IBAction private func touchDigit(_ sender: UIButton) {
+    @IBAction private func touchDigit(_ sender: ButtonStyle) {
+        sender.flashAnimation()
+        
         let newDigit = sender.currentTitle!
         
         brain.wasTapped.digit = true
@@ -47,7 +41,12 @@ class InputView: UIViewController {
                 value = displayValue + newDigit
             }
             
-            displayValue = value.count <= 17 ? value : displayValue
+            if value.count <= 17 {
+                displayValue =  value
+            } else{
+                sender.shakeAnimation()
+                playErrorSound()
+            }
         } else{
             displayValue = newDigit
             if displayValue == "0" { return }
@@ -56,7 +55,9 @@ class InputView: UIViewController {
         isOnMiddleOfTyping = true
     }
     
-    @IBAction func touchDot(_ sender: UIButton) {
+    @IBAction func touchDot(_ sender: ButtonStyle) {
+        animateButton(sender)
+        
         let displayStr = delegateToOutput!.displayValue
         
         if !isOnMiddleOfTyping {
@@ -67,9 +68,12 @@ class InputView: UIViewController {
         isOnMiddleOfTyping = true
     }
     
-    @IBAction func performOperation(_ sender: UIButton) {
+    @IBAction func performOperation(_ sender: ButtonStyle) {
         brain.setOperand( displayValue.withoutSeparators ?? Double.nan )
         brain.performOperation(sender.currentTitle!)
+        
+        animateButton(sender)
+        
         let result = brain.result
         var strValue = result.withSeparators!
         
@@ -78,11 +82,21 @@ class InputView: UIViewController {
             strValue.asInt! :
         strValue
 
+        // if string is bigger than 17 chars - convert to exponential view
         displayValue = strValue.count > 17 ?
             result.asScientific! :
         strValue
         
         isOnMiddleOfTyping = false
+    }
+    
+    private func animateButton(_ button: ButtonStyle){
+        if button.currentTitle == "MR" && brain.result == 0{
+            button.shakeAnimation()
+            playErrorSound()
+        } else{
+            button.flashAnimation()
+        }
     }
 }
     

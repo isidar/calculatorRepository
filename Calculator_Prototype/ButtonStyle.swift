@@ -37,71 +37,33 @@ class ButtonStyle: UIButton {
             layer.borderWidth = newValue
         }
     }
-    /*
-    @IBInspectable
-    var addIndexes: Bool = true {
-        didSet{
-            self.addIndexesToButtonName()
-            
-        }
+    
+    func flashAnimation(){
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 0.05
+        flash.fromValue = 1
+        flash.toValue = 0.7
+        flash.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = 1
+        
+        layer.add(flash, forKey: nil)
     }
     
-    private func addIndexesToButtonName(){
-        let buttonName = self.currentTitle
-        let currentFont = self.titleLabel?.font
+    func shakeAnimation(){
+        let shake = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 1
+        shake.autoreverses = true
+        let fromPoint = CGPoint(x: center.x - 5, y: center.y)
+        let fromValue = NSValue(cgPoint: fromPoint)
         
-        if let flagChar = buttonName?.index(of: "^"){
-            if let leftBrace = buttonName?.index(of: "("){
-                if leftBrace == buttonName?.index(after: flagChar){
-                    if let rightBrace = buttonName?.index(of: ")"){
-                        if rightBrace > leftBrace{
-                            self.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: <#T##UIControlState#>) = buttonName?.addIndex(font: currentFont!, range:  NSRange.init(leftBrace...rightBrace, in: buttonName!))
-                        }
-                    }
-                }
-                
-            }
-            
-            if let leftBrace = buttonName?.index(after: flagChar), leftBrace == "(",
-                let rightBrace = buttonName?.index(after: flagChar) == ")"{
-                
-            }
-            
-            
-            if
-        }
+        let toPoint = CGPoint(x: center.x + 5, y: center.y)
+        let toValue = NSValue(cgPoint: toPoint)
         
-        if buttonName
+        shake.fromValue = fromValue
+        shake.toValue = toValue
         
-        self.titleLabel?.text = buttonName.addIndex(for: <#T##String#>, font: currentFont, range: <#T##NSRange#>)
-        
-        self.titleLabel?.font.pointSize
-        
-        self.titleLabel?.font =  UIFont(name: YourfontName, size: 20)
-        
-    }
-    */
-}
-
-/*
-public class MyButton: UIButton
-{
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        
-        updateCornerRadius()
-    }
-    
-    @IBInspectable
-    var rounded: Bool = false {
-        didSet {
-            updateCornerRadius()
-        }
-    }
-    
-    func updateCornerRadius() {
-        layer.cornerRadius = rounded ? frame.size.height / 2 : 0
+        layer.add(shake, forKey: nil)
     }
 }
-*/
