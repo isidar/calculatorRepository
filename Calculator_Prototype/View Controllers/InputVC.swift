@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class InputView: UIViewController {
+class InputVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var delegateToOutput: OutputDelegate?

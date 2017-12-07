@@ -8,17 +8,17 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
-    var outputPlace: OutputView!
-    var inputPlace: InputView!
+class CalculatorVC: UIViewController {
+    var outputPlace: OutputVC!
+    var inputPlace: InputVC!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         switch segue.identifier! {
         case "input" :
-            inputPlace = segue.destination as! InputView
+            inputPlace = segue.destination as! InputVC
         case "output" :
-            outputPlace = segue.destination as! OutputView
+            outputPlace = segue.destination as! OutputVC
         default: break
         }
         

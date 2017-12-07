@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OutputView: UIViewController, OutputDelegate {
+class OutputVC: UIViewController, OutputDelegate {
     @IBOutlet private weak var resultLabel: UILabel!
     
     var displayValue: String {
