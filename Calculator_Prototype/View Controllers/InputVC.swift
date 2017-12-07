@@ -42,7 +42,7 @@ class InputVC: UIViewController {
             }
             
             if value.count <= 17 {
-                displayValue =  value
+                displayValue = value
             } else{
                 sender.shakeAnimation()
                 playErrorSound()

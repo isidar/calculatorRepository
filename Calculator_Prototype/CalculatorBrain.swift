@@ -34,45 +34,41 @@ class CalculatorBrain{
     }
     
     private var operations: Dictionary <String, Operation> = [
-        //check all functions, especially "logs"
-        "±" : Operation.UnaryOperation( {-$0} ),
-        "√" : Operation.UnaryOperation(sqrt),
-        "xˆ2" : Operation.UnaryOperation( {$0 * $0} ),
-        "xˆ3" : Operation.UnaryOperation( {$0 * $0 * $0} ),
-        "2^x" : Operation.UnaryOperation( {pow(2,$0)} ),
-        "10^x" : Operation.UnaryOperation( {pow(10,$0)} ),
-        "1/x" : Operation.UnaryOperation( {1 / $0} ),
-        "cos" : Operation.UnaryOperation(cos),
-        "sin" : Operation.UnaryOperation(sin),
-        "tg" : Operation.UnaryOperation(tan),
-        "ctg" : Operation.UnaryOperation( {1/tan($0)} ),
-        "ln" : Operation.UnaryOperation(log),
-        "log10" : Operation.UnaryOperation(log10),
-        "log2" : Operation.UnaryOperation(log2),
-        "!" : Operation.UnaryOperation(factorial),
+        "±" : .UnaryOperation( {-$0} ),
+        "√" : .UnaryOperation(sqrt),
+        "xˆ2" : .UnaryOperation( {$0 * $0} ),
+        "xˆ3" : .UnaryOperation( {$0 * $0 * $0} ),
+        "2^x" : .UnaryOperation( {pow(2,$0)} ),
+        "10^x" : .UnaryOperation( {pow(10,$0)} ),
+        "1/x" : .UnaryOperation( {1 / $0} ),
+        "cos" : .UnaryOperation(cos),
+        "sin" : .UnaryOperation(sin),
+        "tg" : .UnaryOperation(tan),
+        "ctg" : .UnaryOperation( {1/tan($0)} ),
+        "ln" : .UnaryOperation(log),
+        "log10" : .UnaryOperation(log10),
+        "log2" : .UnaryOperation(log2),
+        "!" : .UnaryOperation(factorial),
         
-        "+" : Operation.BinaryOperation( {$0 + $1} ),
-        "-" : Operation.BinaryOperation( {$0 - $1} ),
-        "×" : Operation.BinaryOperation( {$0 * $1} ),
-        "/" : Operation.BinaryOperation( {$0 / $1} ),
-        "xˆy" : Operation.BinaryOperation( {pow($0,$1)} ),
-        "logx(y)" : Operation.BinaryOperation({ log($1)/log($0) }),
+        "+" : .BinaryOperation( {$0 + $1} ),
+        "-" : .BinaryOperation( {$0 - $1} ),
+        "×" : .BinaryOperation( {$0 * $1} ),
+        "/" : .BinaryOperation( {$0 / $1} ),
+        "xˆy" : .BinaryOperation( {pow($0,$1)} ),
+        "logx(y)" : .BinaryOperation({ log($1)/log($0) }),
         
-        "=" : Operation.Equal,
-        
-        "AC" : Operation.Clear,
-        
-        "π" : Operation.Constant(3.14159),
-        "e" : Operation.Constant(2.71828),
-        
-        "MC" : Operation.Memory,
-        "MR" : Operation.Memory,
-        "M+" : Operation.Memory,
-        "M-" : Operation.Memory,
+        "=" : .Equal,
+        "AC" : .Clear,
+        "π" : .Constant(3.14159),
+        "e" : .Constant(2.71828),
+        "MC" : .Memory,
+        "MR" : .Memory,
+        "M+" : .Memory,
+        "M-" : .Memory,
     ]
     
     var result: Double {
-        get { return accumulator }
+        return accumulator
     }
     
     func setOperand(_ operand: Double) {
@@ -82,10 +78,8 @@ class CalculatorBrain{
     func performOperation(_ symbol: String) {
         if let operation = operations[symbol] {
             switch operation{
-                
             case .UnaryOperation(let f) :
                 accumulator = f(accumulator)
-                //pending = nil
                 wasTapped = WasTapped(equal: false, digit: false)
                 
             case .BinaryOperation(let f) :
@@ -112,11 +106,9 @@ class CalculatorBrain{
                 accumulator = 0.0
                 pending = nil
             
-                // check if "digit was tapped" is needed
             case .Constant(let n):
                 accumulator = n
             
-                // check if "digit was tapped" is needed
             case .Memory:
                 switch symbol {
                 case "MC" : memoryStorage = 0.0

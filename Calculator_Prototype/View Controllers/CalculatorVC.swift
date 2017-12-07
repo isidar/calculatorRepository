@@ -12,8 +12,7 @@ class CalculatorVC: UIViewController {
     var outputPlace: OutputVC!
     var inputPlace: InputVC!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
         case "input" :
             inputPlace = segue.destination as! InputVC
